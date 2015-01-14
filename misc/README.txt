@@ -13,8 +13,8 @@ Steps
 
 X. Get git working on home computer. 
 X. Install Google App Engine on home computer. 
-3. Import Google App Engine sample guestbook project. 
-4. Post Guestbook app as version 0.1 on appspot.com 
-5. Create Guestbook frontend Android app.
+3. Modify initial GAE project to modify database or pubs. 
+4. Post app as version 0.1 on appspot.com 
+5. Create PubMate Android app 0.1 to pull data from GAE.
 ...
 106. Update Database to create Bar entries.
