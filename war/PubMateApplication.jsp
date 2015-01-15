@@ -79,8 +79,8 @@ if (user != null){
 		<form action="/new" method="post" accept-charset="utf-8">
 			<table>
 				<tr>
-					<td><label for="summary">Summary</label></td>
-					<td><input type="text" name="summary" id="summary" size="65" /></td>
+					<td><label for="summary">Name</label></td>
+					<td><input type="text" name="Name" id="name" size="65" /></td>
 				</tr>
 				<tr>
 					<td valign="description"><label for="description">Description</label></td>
