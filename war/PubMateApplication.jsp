@@ -21,18 +21,10 @@
 	<%
 dao my_dao = dao.INSTANCE;
 
-UserService userService = UserServiceFactory.getUserService();
-User user = userService.getCurrentUser();
 
-String url = userService.createLoginURL(request.getRequestURI());
-String urlLinktext = "Login";
-List<PubModel> todos = new ArrayList<PubModel>();
-            
-if (user != null){
-    url = userService.createLogoutURL(request.getRequestURI());
-    urlLinktext = "Logout";
-    todos = my_dao.getTodos(user.getUserId());
-}
+List<PubModel> pubs = new ArrayList<PubModel>();          
+pubs = my_dao.listPubs();
+
     
 %>
 	<div style="width: 100%;">
@@ -41,16 +33,14 @@ if (user != null){
 			<div style="float: left;">
 				<img src="images/todo.png" />
 			</div>
-			<div style="float: left;" class="headline">Todos</div>
-			<div style="float: right;">
-				<a href="<%=url%>"><%=urlLinktext%></a>
-				<%=(user==null? "" : user.getNickname())%></div>
+			<div style="float: left;" class="headline">Pubs</div>
+			<div style="float: right;"></div>
 		</div>
 	</div>
 
 	<div style="clear: both;"></div>
 	You have a total number of
-	<%= todos.size() %>
+	<%= pubs.size() %>
 	Todos.
 
 	<table>
@@ -61,9 +51,9 @@ if (user != null){
 			<th>Done</th>
 		</tr>
 
-		<% for (PubModel todo : todos) {%>
+		<% for (PubModel pub : pubs) {%>
 		<tr>
-			<td><%=todo.getName()%></td>
+			<td><%=pub.getName()%></td>
 		</tr>
 		<%}
 %>
@@ -80,7 +70,7 @@ if (user != null){
 			<table>
 				<tr>
 					<td><label for="summary">Name</label></td>
-					<td><input type="text" name="Name" id="name" size="65" /></td>
+					<td><input type="text" name="name" id="name" size="65" /></td>
 				</tr>
 				<tr>
 					<td valign="description"><label for="description">Description</label></td>

@@ -11,7 +11,7 @@ import com.schlik.pubmate.PubModel;
 public enum dao {
 	INSTANCE;
 
-	public List<PubModel> listTodos() {
+	public List<PubModel> listPubs() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// read the existing entries
 		Query q = em.createQuery("select m from PubModel m");
@@ -28,7 +28,7 @@ public enum dao {
 		}
 	}
 
-	public List<PubModel> getTodos(String userId) {
+	public List<PubModel> getPubs(String userId) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
 				.createQuery("select t from PubModel t where t.author = :userId");

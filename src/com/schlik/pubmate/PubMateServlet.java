@@ -20,7 +20,7 @@ public class PubMateServlet extends HttpServlet {
 
     dao.INSTANCE.add(name);
 
-    resp.sendRedirect("/TodoApplication.jsp");
+    resp.sendRedirect("/PubMateApplication.jsp");
   }
 
   private String checkNull(String s) {
