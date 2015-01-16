@@ -20,6 +20,10 @@ public class PubModel {
 	public String getName() {
 		return pub_name;
 	}
+	
+	public Long getId()	{
+		return id;
+	}
 } 
 
 

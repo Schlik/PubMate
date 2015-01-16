@@ -5,12 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.schlik.pubmate.PubModel;
 
+import com.schlik.pubmate.PubModel;
 
 public enum dao {
 	INSTANCE;
-
+	
+	/** A simple endpoint method that takes a name and says Hi back */
 	public List<PubModel> listPubs() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// read the existing entries
@@ -19,7 +20,7 @@ public enum dao {
 		return todos;
 	}
 
-	public void add(String name) {
+	public void add( String name) {
 		synchronized (this) {
 			EntityManager em = EMFService.get().createEntityManager();
 			PubModel pub = new PubModel(name );

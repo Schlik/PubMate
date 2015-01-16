@@ -1,0 +1,192 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://pubchum.appspot.com/_ah/api",
+  "name" : "pubmodelendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://pubchum.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "schlik.com",
+  "ownerName" : "schlik.com",
+  "packagePath" : "pubmate",
+  "methods" : {
+    "pubmodelendpoint.listPubModel" : {
+      "path" : "pubmodel",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.schlik.pubmate.PubModelEndpoint.listPubModel",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pubmodelendpoint.updatePubModel" : {
+      "path" : "pubmodel",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.schlik.pubmate.PubModelEndpoint.updatePubModel",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pubmodelendpoint.getPubModel" : {
+      "path" : "pubmodel/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.schlik.pubmate.PubModelEndpoint.getPubModel",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pubmodelendpoint.insertPubModel" : {
+      "path" : "pubmodel",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.schlik.pubmate.PubModelEndpoint.insertPubModel",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pubmodelendpoint.removePubModel" : {
+      "path" : "pubmodel/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.schlik.pubmate.PubModelEndpoint.removePubModel",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "CollectionResponse_PubModel" : {
+        "id" : "CollectionResponse_PubModel",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "PubModel"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubModel" : {
+        "id" : "PubModel",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.schlik.pubmate.PubModelEndpoint.listPubModel" : {
+        "response" : {
+          "$ref" : "CollectionResponse_PubModel"
+        }
+      },
+      "com.schlik.pubmate.PubModelEndpoint.updatePubModel" : {
+        "request" : {
+          "$ref" : "PubModel"
+        },
+        "response" : {
+          "$ref" : "PubModel"
+        }
+      },
+      "com.schlik.pubmate.PubModelEndpoint.getPubModel" : {
+        "response" : {
+          "$ref" : "PubModel"
+        }
+      },
+      "com.schlik.pubmate.PubModelEndpoint.insertPubModel" : {
+        "request" : {
+          "$ref" : "PubModel"
+        },
+        "response" : {
+          "$ref" : "PubModel"
+        }
+      },
+      "com.schlik.pubmate.PubModelEndpoint.removePubModel" : {
+      }
+    }
+  }
+}
