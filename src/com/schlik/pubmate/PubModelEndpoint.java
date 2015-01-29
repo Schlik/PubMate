@@ -18,11 +18,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-@Api(name = "pubmodelendpoint", 
-     namespace = @ApiNamespace(ownerDomain = "schlik.com", 
-                               ownerName = "schlik.com", 
-                               packagePath = "pubmate"))
-
+@Api(name = "pubmodelendpoint", namespace = @ApiNamespace(ownerDomain = "schlik.com", ownerName = "schlik.com", packagePath = "pubmate"))
 public class PubModelEndpoint {
 
 	/**
